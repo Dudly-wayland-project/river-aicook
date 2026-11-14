@@ -3,9 +3,36 @@ SPDX-FileCopyrightText: © 2020 The River Developers
 SPDX-License-Identifier: CC-BY-SA-4.0
 -->
 
-<div align="center">
-  <img src="logo/logo_text_adaptive_color.svg" width="600em">
-</div>
+# river (personal fork)
+
+This is a **personal fork** of [river](https://codeberg.org/river/river), the
+non-monolithic Wayland compositor, maintained for my own daily use.
+
+It is an experimental tree: patches land here to be tried out, not to be sent
+upstream. There is no support, no stability promise, and no release schedule.
+If you want river, use the upstream project.
+
+Upstream is maintained by Isaac Freund and the river contributors.
+
+## Fork status
+
+- Base: upstream commit `85b0088` — "LayerSurface: configure until unmap, not
+  only on initial commit" (2026-10-18), version `0.6.0-dev`
+- Purpose: personal experimentation, not upstream submission
+
+## Changes in this fork
+
+Nothing diverges from the base commit yet. Record changes here as they land:
+
+- _(none)_
+
+Keeping upstream as a separate remote makes rebasing easy:
+
+```
+git remote add upstream https://codeberg.org/river/river.git
+git fetch upstream
+git rebase upstream/main
+```
 
 ## Overview
 
@@ -13,24 +40,6 @@ River is a non-monolithic Wayland compositor. Unlike other Wayland compositors,
 river does not combine the compositor and window manager into one program.
 Instead, users can choose any window manager implementing the
 [river-window-management-v1] protocol.
-
-Read my blog post, [Separating the Wayland Compositor and Window Manager](https://isaacfreund.com/blog/river-window-management/),
-for an in-depth explanation.
-
-There is a [list of compatible window managers] on our [wiki](https://codeberg.org/river/wiki).
-
-> *If you are looking for the old dynamic tiling version of river, see
-[river-classic](https://codeberg.org/river/river-classic).*
-
-## Links
-
-- [Protocol Docs](https://isaacfreund.com/docs/wayland/)
-- [tinyrwm](https://codeberg.org/river/tinyrwm) example window manager
-- [Wiki](https://codeberg.org/river/wiki)
-- IRC: [#river](https://web.libera.chat/?channels=#river) on irc.libera.chat ([logs](https://libera.catirclogs.org/river))
-- [Zulip](https://river-compositor.zulipchat.com) (new)
-- [Issue Tracker](https://codeberg.org/river/river/issues)
-- [Code of Conduct](CODE_OF_CONDUCT.md)
 
 ## Features
 
@@ -44,26 +53,12 @@ many Wayland protocol extensions, robust Xwayland support, the ability to
 hot-swap window managers, and more.
 
 The [river-window-management-v1] protocol and other river protocol extensions
-are stable.  We do not break window managers.
-
-## Motivation
-
-Why split the window manager to a separate process?
-
-- Significantly lower the barrier to entry for writing a Wayland window manager.
-- Allow implementing Wayland window managers in high-level garbage collected
-  languages without impacting compositor performance and latency.
-- Allow hot-swapping between window managers without restarting the compositor
-  and all Wayland programs.
-- Promote diversity and experimentation in window manager design.
+are stable.
 
 ## Building
 
-Note: If you are packaging river for distribution, see [PACKAGING.md](PACKAGING.md).
-
-To compile river first ensure that you have the following dependencies
-installed. The "development" versions are required if applicable to your
-distribution.
+Ensure that you have the following dependencies installed. The "development"
+versions are required if applicable to your distribution.
 
 - [zig](https://ziglang.org/download/) 0.17.1
 - wayland
@@ -94,43 +89,12 @@ if such an executable exists. If `$XDG_CONFIG_HOME` is not set,
 Usually this executable is a shell script which starts the user's window manager
 and any other long-running programs.
 
-See also:
-
-- The `river(1)` man page
-- The [wiki FAQ](https://codeberg.org/river/wiki)
-- The [list of compatible window managers]
-- The [list of useful companion software]
-
-## Strict No LLM / No AI Policy
-
-Use of generative AI/LLMs is strictly forbidden for all contributions to river.
-
-This includes bug reports and comments on the issue tracker.
+See also the `river(1)` man page.
 
 ## Hacking
 
-See [ARCHITECTURE.md](ARCHITECTURE.md) for an overview of the code base.
-
-See [CONTRIBUTING.md](CONTRIBUTING.md) for information on submitting patches.
-
-## Donate
-
-If my work on river adds value to your life please consider setting up a
-recurring donation through [liberapay]. This is the best way to make river's
-development sustainable in the long term.
-
-You can also support me with a one-time or monthly donation on [github sponsors]
-or [ko-fi] though I prefer liberapay as it is run by a non-profit.
-
-Thank you for your support!
-
-## Funding
-
-River is funded in part through the [NGI0 Commons Fund](https://nlnet.nl/commonsfund),
-a fund established by NLnet with financial support from the European
-Commission's [Next Generation Internet](https://ngi.eu/) programme.
-
-Learn more at the [NLnet project page](https://nlnet.nl/project/River-protocol/).
+See [ARCHITECTURE.md](ARCHITECTURE.md) for an overview of the code base, and
+[doc/internal](doc/internal) for in-depth notes on complex corners of it.
 
 ## Licensing
 
@@ -144,8 +108,3 @@ In overview:
 - River's logo and documentation are released under the CC-BY-SA-4.0 license.
 
 [river-window-management-v1]: https://isaacfreund.com/docs/wayland/river-window-management-v1
-[liberapay]: https://liberapay.com/ifreund
-[github sponsors]: https://github.com/sponsors/ifreund
-[ko-fi]: https://ko-fi.com/ifreund
-[list of compatible window managers]: https://codeberg.org/river/wiki/src/branch/main/pages/wm-list.md
-[list of useful companion software]: https://codeberg.org/river/wiki/src/branch/main/pages/useful-software.md
