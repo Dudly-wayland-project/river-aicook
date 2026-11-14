@@ -10,7 +10,7 @@ non-monolithic Wayland compositor, maintained for my own daily use.
 
 It is an experimental tree: patches land here to be tried out, not to be sent
 upstream. There is no support, no stability promise, and no release schedule.
-If you want river, use the upstream project.
+You can use this as long as you can accept AI generation.
 
 Upstream is maintained by Isaac Freund and the river contributors.
 
