@@ -10,29 +10,10 @@ non-monolithic Wayland compositor, maintained for my own daily use.
 
 It is an experimental tree: patches land here to be tried out, not to be sent
 upstream. There is no support, no stability promise, and no release schedule.
-You can use this as long as you can accept AI generation.
+
+**You can use this as long as you can accept AI generation.**
 
 Upstream is maintained by Isaac Freund and the river contributors.
-
-## Fork status
-
-- Base: upstream commit `85b0088` — "LayerSurface: configure until unmap, not
-  only on initial commit" (2026-10-18), version `0.6.0-dev`
-- Purpose: personal experimentation, not upstream submission
-
-## Changes in this fork
-
-Nothing diverges from the base commit yet. Record changes here as they land:
-
-- _(none)_
-
-Keeping upstream as a separate remote makes rebasing easy:
-
-```
-git remote add upstream https://codeberg.org/river/river.git
-git fetch upstream
-git rebase upstream/main
-```
 
 ## Overview
 
